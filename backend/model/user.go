@@ -1,8 +1,12 @@
 package model
 
+import "gorm.io/gorm"
+
 type User struct {
-	ID       int    `json:"id"`
+	gorm.Model
+	GoogleID string `gorm:"uniqueIndex"`
 	Email    string `json:"email"`
 	Name     string `json:"name"`
-	GroupIDs []int  `json:"group_ids,omitempty"`
+	Picture  string
+	GroupIDs []int `json:"group_ids,omitempty"`
 }
